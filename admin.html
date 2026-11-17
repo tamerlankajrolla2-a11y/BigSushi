@@ -228,7 +228,7 @@ function boot(){
   m.textContent=Store.isCloud()?'облако':'локально';
   m.className='mode'+(Store.isCloud()?' cloud':'');
   Store.loadMenu(true).then(function(d){ DATA=d; }).catch(function(e){ toast('Меню не загрузилось: '+e.message); DATA=Store.normalize({}); })
-    .then(function(){ render(); if(!Store.isCloud()) Store.fileRev().then(function(r){fileRev=r; if(tab==='menu')render();}).catch(function(){}); });
+    .then(function(){ render(); Store.fileRev().then(function(r){fileRev=r; if(tab==='menu'||tab==='orders')render();}).catch(function(){}); });
 }
 var saveT=null;
 var saveState='';
@@ -391,7 +391,7 @@ function viewMenu(){
   if(!catOf(mCat)) mCat=(DATA.cats[0]||{}).id;
   var c=catOf(mCat), kb=Math.round(JSON.stringify(DATA).length/1024);
   $('#view').innerHTML='<h2 class="t">Меню</h2>'+
-    (!Store.isCloud()&&fileRev>DATA.rev?'<div class="note">На сайте вышла новая версия меню, а в этом браузере осталась старая с вашими правками.<div class="row"><button class="btn o s" id="takeNew">Взять новую</button></div></div>':'')+
+    (fileRev>DATA.rev?'<div class="note">'+(Store.isCloud()?'Разработчик обновил меню сайта (новые роллы, пиццы, цены). Нажмите «Взять новую», чтобы оно появилось на сайте. Ваши правки в меню при этом заменятся.':'На сайте вышла новая версия меню, а в этом браузере осталась старая с вашими правками.')+'<div class="row"><button class="btn o s" id="takeNew">Взять новую</button></div></div>':'')+
     (Store.isCloud()?'':'<div class="warn">Правки сохраняются только на этом устройстве. Чтобы их увидели все посетители, подключите базу или скачайте файл меню и положите его в репозиторий.<div class="row"><button class="btn o s" data-go="cloud">Подключить базу</button><button class="btn o s" id="dlMenu">Скачать menu.json</button></div></div>')+
     '<div class="chipsrow" id="mCats"></div>'+
     '<input id="mQ" type="search" placeholder="Поиск по всему меню" value="'+esc(mQ)+'" style="margin-bottom:10px">'+
