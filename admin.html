@@ -604,6 +604,14 @@ function paintTg(){
       '<p style="margin:10px 0"><b>'+(n?'✅ Подключено: '+n+' '+(n===1?'чат':n<5?'чата':'чатов'):'Пока не подключено')+'</b></p>'+
       '<div class="row"><button class="btn g" type="button" id="tgOn">'+(n?'Подключить ещё телефон':'Подключить Telegram')+'</button>'+(n?'<button class="btn o" type="button" id="tgOff">Отключить все</button>':'')+'</div>'+
       '<p class="muted" style="margin-top:8px">Нажмите кнопку на телефоне, где установлен Telegram, — откроется бот @'+esc(r.bot)+'. Нажмите «Старт» (Start), и всё. Ссылка действует 15 минут. Так можно подключить несколько телефонов.</p>';
+    if(r.own!==undefined){
+      (r.own?el:el.querySelector('h3')).insertAdjacentHTML(r.own?'beforeend':'afterend','<div class="'+(r.own?'note':'warn')+'" style="margin-top:12px">'+
+        (r.own?'🤖 Заказы присылает ваш бот @'+esc(r.bot)+'. Чтобы сменить бота, вставьте новый токен.':'🤖 Сейчас заказы присылает общий бот @'+esc(r.bot)+'. Чтобы они приходили от вашего бота, вставьте его токен из @BotFather (строка вида 123456789:AA…).')+
+        '<div class="row"><input id="tgTok" type="password" autocomplete="off" spellcheck="false" placeholder="Токен бота" style="flex:1;min-width:200px;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:inherit;padding:0 12px;font:inherit"><button class="btn g" type="button" id="tgOwnB">Подключить бота</button></div></div>');
+      $('#tgOwnB').onclick=function(){var v=$('#tgTok').value.trim();if(!v){toast('Вставьте токен бота');return;}
+        var b=this;b.disabled=true;Store.tgOwn(v).then(function(x){toast('✅ Бот @'+x.bot+' подключён. Теперь нажмите «Подключить Telegram»');paintTg();})
+        .catch(function(e){b.disabled=false;toast(/bad bot token/.test(e.message)?'Токен не подошёл — скопируйте его из @BotFather целиком':'Ошибка: '+e.message);});};
+    }
     $('#tgOn').onclick=function(){var w=window.open('about:blank','_blank');Store.tgLink().then(function(x){if(w)w.location.href=x.url;else location.href=x.url;toast('После «Старт» в боте вернитесь сюда');setTimeout(paintTg,15000);}).catch(function(e){if(w)w.close();toast('Ошибка: '+e.message);});};
     if($('#tgOff'))$('#tgOff').onclick=function(){if(!confirm('Отключить уведомления во всех чатах?'))return;Store.tgOff().then(paintTg);};
   }).catch(function(e){var x=$('#tgSt');if(x)x.textContent='Не загрузилось: '+e.message;});

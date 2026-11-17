@@ -248,6 +248,8 @@ window.Store = (function () {
   function tgInfo() { return req('/tg', { auth: true }); }
   function tgLink() { return req('/tg/link', { method: 'POST', auth: true, body: {} }); }
   function tgOff() { return req('/tg', { method: 'DELETE', auth: true }); }
+  // свой бот сайта: токен из @BotFather вводит владелец в админке, сервер сам проверит бота и подключит его
+  function tgOwn(token) { return req('/tg/own', { method: 'POST', auth: true, body: { token: token } }); }
   // промокод: можно ли применить (сервер помнит номера телефонов). Старый сервер или нет сети — не мешаем заказу.
   function promoCheck(code, phone) {
     var t = new Promise(function (res) { setTimeout(function () { res({ allowed: true, offline: true }); }, 6000); });
@@ -272,7 +274,7 @@ window.Store = (function () {
 
   return {
     loadMenu: loadMenu, saveMenu: saveMenu, resetMenu: resetMenu, fromFile: fromFile, fileRev: fileRev, normalize: normalize,
-    createOrder: createOrder, promoCheck: promoCheck, promoStats: promoStats, promoReset: promoReset, listOrders: listOrders, setStatus: setStatus, tgInfo: tgInfo, tgLink: tgLink, tgOff: tgOff,
+    createOrder: createOrder, promoCheck: promoCheck, promoStats: promoStats, promoReset: promoReset, listOrders: listOrders, setStatus: setStatus, tgInfo: tgInfo, tgLink: tgLink, tgOff: tgOff, tgOwn: tgOwn,
     login: login, logout: logout, authed: authed, changePassword: changePassword,
     isCloud: function () { return true; }, api: API
   };
