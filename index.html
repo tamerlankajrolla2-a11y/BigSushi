@@ -204,6 +204,11 @@ a{color:inherit;text-decoration:none}
 .cats + section .head{margin-top:18px}
 
 .noimg{width:100%;height:100%;display:grid;place-items:center;font-size:54px;background:linear-gradient(160deg,#1f1f25,#17171b)}
+.noimg.set{align-content:center;justify-items:center;gap:0;padding:14px 10px;text-align:center;background:radial-gradient(120% 90% at 50% 18%,rgba(255,107,26,.20),transparent 62%),linear-gradient(160deg,#1f1f25,#17171b)}
+.noimg.set .nb{font-size:30px;line-height:1;margin-bottom:6px}
+.noimg.set b{font-size:62px;line-height:1;font-weight:800;letter-spacing:-.02em;color:#fff}
+.noimg.set i{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ff8a3d;margin-top:6px}
+.noimg.set em{font-style:normal;font-size:13px;font-weight:600;color:rgba(255,255,255,.62);margin-top:12px;line-height:1.35}
 .list{display:grid;gap:8px}
 @media(min-width:720px){.list{grid-template-columns:1fr 1fr;gap:10px}}
 .li{display:flex;flex-wrap:wrap;align-items:center;gap:11px;background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px 12px;min-height:72px}
@@ -626,8 +631,13 @@ function fitImg(src,alt,lazy){
          '<img class="ifg" src="'+esc(src)+'" alt="'+esc(alt||'')+'"'+(lazy?' loading="lazy"':'')+'>';
 }
 function imgHTML(s){
-  return s.img?fitImg(s.img,ttl(s),true)
-              :'<div class="noimg" aria-hidden="true">'+esc((catById[s.cat]||{}).icon||'🍣')+'</div>';
+  if(s.img) return fitImg(s.img,ttl(s),true);
+  // нет фото: вместо пустой иконки — крупная цифра из состава («70 шт роллов» и т.п.)
+  var ch=s.chips||[], m=null, rest=[];
+  for(var i=0;i<ch.length;i++){var mm=/^(\S+)\s+(\d+)$/.exec(ch[i]); if(!m&&mm) m=mm; else rest.push(ch[i]);}
+  if(!m) return '<div class="noimg" aria-hidden="true">'+esc((catById[s.cat]||{}).icon||'🍣')+'</div>';
+  var unit={'🍣':'шт роллов','🍕':m[2]==='1'?'пицца':'пиццы','🍗':'крылышек'}[m[1]]||'';
+  return '<div class="noimg set" aria-hidden="true"><span class="nb">'+esc(m[1])+'</span><b>'+esc(m[2])+'</b><i>'+esc(unit)+'</i>'+(rest.length?'<em>'+rest.map(esc).join('  ·  ')+'</em>':'')+'</div>';
 }
 function cardHTML(s){
   var q=qtyOfItem(s.id);
