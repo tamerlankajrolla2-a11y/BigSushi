@@ -635,7 +635,7 @@ function cardHTML(s){
     '<button type="button" class="open" data-open="'+s.id+'" aria-label="'+esc(ttl(s))+', '+fmt(s.price)+' — открыть состав">'+
       '<div class="ph">'+imgHTML(s)+
         (s.tag?'<span class="tag '+(s.tagColor==='y'?'y':'')+'">'+esc(s.tag)+'</span>':'')+
-        (oldOf(s)?'<span class="mega">'+megaLabel()+'</span>':'')+
+        (oldOf(s)&&MEGA?'<span class="mega">'+megaLabel()+'</span>':'')+
         '<span class="qtag"'+(q?'':' hidden')+'>×'+(q||'')+'</span></div>'+
       '<div class="ct"><h3>'+esc(s.name)+'</h3>'+chipsHTML(s)+optsHTML(s)+
         '<p class="pr">'+priceHTML(s)+'<span class="more">'+(s.groups.length?'Состав':'Подробнее')+' ›</span></p></div>'+
@@ -649,7 +649,7 @@ function rowHTML(s){
     (s.img?'<button type="button" class="th" data-open="'+s.id+'" aria-label="'+esc(s.name)+' — подробнее"><img src="'+esc(s.img)+'" alt="" loading="lazy"></button>'
           :(s.icon?'<span class="th ic" aria-hidden="true">'+esc(s.icon)+'</span>':''))+
     '<'+tag+' class="tx"><b>'+esc(s.name)+'</b>'+(s.tag?'<span class="lt '+(s.tagColor==='y'?'y':'')+'">'+esc(s.tag)+'</span>':'')+
-      (oldOf(s)?'<span class="lt mg">'+megaLabel()+'</span>':'')+
+      (oldOf(s)&&MEGA?'<span class="lt mg">'+megaLabel()+'</span>':'')+
       (s.desc?'<small>'+esc(s.desc)+'</small>':'')+priceHTML(s)+'</'+(det?'button':'div')+'>'+
     '<div class="by" id="b-'+s.id+'">'+buyHTML(s.id,true)+'</div>'+optsHTML(s)+'</article>';
 }
