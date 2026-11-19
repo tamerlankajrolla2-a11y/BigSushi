@@ -678,7 +678,7 @@
    "old": 0,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-tuz.jpg",
    "on": true,
    "note": "Идеально на компанию 3–4 человека",
    "chips": [
@@ -739,7 +739,7 @@
    "old": 0,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-plamya.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -790,7 +790,7 @@
    "old": 19590,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-koroche.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -892,7 +892,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-detskiy.jpg",
    "on": true,
    "note": "Крылья 10 шт или наггетсы 16 шт — на выбор",
    "chips": [
@@ -975,7 +975,7 @@
    "old": 11999,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-laliga.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1055,7 +1055,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-okidoki.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1115,7 +1115,7 @@
    "old": 9590,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-dabl-kill.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1181,7 +1181,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-mulan.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1241,7 +1241,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-dyadya-tom.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1326,7 +1326,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-stipendiya.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1379,7 +1379,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-tik-tak.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1424,7 +1424,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-bara-bara.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1499,7 +1499,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-tausar.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1570,7 +1570,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-zhar-premium.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1630,7 +1630,7 @@
    "old": 8790,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-80-90.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1694,7 +1694,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-korporat.jpg",
    "on": true,
    "note": "Для компании, офиса или вечеринки",
    "chips": [
@@ -1787,7 +1787,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-korporativ.jpg",
    "on": true,
    "note": "Идеально для офиса, дня рождения или тусовки",
    "chips": [
@@ -1904,7 +1904,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-shok.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -1961,7 +1961,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-na-vecher.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2018,7 +2018,7 @@
    "old": 0,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-dzhumandzhi.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2082,7 +2082,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-kompaniya.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2154,7 +2154,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-bratya.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2314,7 +2314,7 @@
    "old": 0,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-las-vegas.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2443,7 +2443,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-barbi.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2507,7 +2507,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-dodi.jpg",
    "on": true,
    "note": "Для ужина вдвоём или вечера в компании",
    "chips": [
@@ -2557,7 +2557,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-gold.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2625,7 +2625,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-ogon.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2682,7 +2682,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-shah.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2743,7 +2743,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-zapechennyj.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2807,7 +2807,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-777.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2868,7 +2868,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-hrustim.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2920,7 +2920,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-zhareniy.jpg",
    "on": true,
    "note": "",
    "chips": [
@@ -2977,7 +2977,7 @@
    "old": 11990,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-ramadan.jpg",
    "on": false,
    "note": "Семейный сет к месяцу Рамадан",
    "chips": [
@@ -3074,7 +3074,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-etalon.jpg",
    "on": false,
    "note": "Акция прошла",
    "chips": [
@@ -3143,7 +3143,7 @@
    "old": 31990,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-vavilon.jpg",
    "on": false,
    "note": "Новогодняя акция −40%",
    "chips": [
@@ -3247,7 +3247,7 @@
    "old": 20990,
    "tag": "🔥 Акция",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-volshebstvo.jpg",
    "on": false,
    "note": "Новогодняя акция −40%",
    "chips": [
@@ -3336,7 +3336,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-muzhskoy.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3389,7 +3389,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-mila.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3446,7 +3446,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-umka.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3507,7 +3507,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-halyava.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3579,7 +3579,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-hitovyy.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3644,7 +3644,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-bolshoy-uzhin.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3720,7 +3720,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-lyubov-morkov.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3775,7 +3775,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-neo.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3846,7 +3846,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-vstrechay.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3907,7 +3907,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-okean.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -3964,7 +3964,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-dobryy.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -4024,7 +4024,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-imperator.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -4110,7 +4110,7 @@
    "old": 0,
    "tag": "",
    "tagColor": "red",
-   "img": "",
+   "img": "img/bs-bobi.jpg",
    "on": false,
    "note": "",
    "chips": [
@@ -4918,7 +4918,7 @@
   }
  ],
  "catsV": 5,
- "menuV": 7,
+ "menuV": 8,
  "about": {
   "on": true,
   "title": "О Big Sushi",
