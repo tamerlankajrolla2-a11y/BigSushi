@@ -3337,7 +3337,7 @@
    "tag": "",
    "tagColor": "red",
    "img": "img/bs-muzhskoy.jpg",
-   "on": false,
+   "on": true,
    "note": "",
    "chips": [
     "🍣 40",
@@ -3390,7 +3390,7 @@
    "tag": "",
    "tagColor": "red",
    "img": "img/bs-mila.jpg",
-   "on": false,
+   "on": true,
    "note": "",
    "chips": [
     "🍣 70",
@@ -3721,7 +3721,7 @@
    "tag": "",
    "tagColor": "red",
    "img": "img/bs-lyubov-morkov.jpg",
-   "on": false,
+   "on": true,
    "note": "",
    "chips": [
     "🍣 40",
@@ -3776,7 +3776,7 @@
    "tag": "",
    "tagColor": "red",
    "img": "img/bs-neo.jpg",
-   "on": false,
+   "on": true,
    "note": "",
    "chips": [
     "🍣 80",
