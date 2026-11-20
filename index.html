@@ -772,8 +772,10 @@ function paintDetailCta(){
 }
 
 /* ---------- «Добавить к заказу?» — допы перед оформлением ---------- */
-function isUp(s){var c=catById[s.cat];return !!(c&&c.upsell);}
-function upItems(){return ITEMS.filter(isUp);}
+function isUp(s){var c=catById[s.cat];return !!(c&&c.upsell);}            // допы (соусы, закуски, напитки)
+function isDaily(s){return s.cat==='daily'&&!!catById.daily;}                  // «Акция дня» (если раздел включён в админке)
+function upItems(){return ITEMS.filter(function(s){return isUp(s)||isDaily(s);});}
+function hasDaily(){return ITEMS.some(isDaily);}
 function needUpsell(){return !upsold&&upItems().length>0&&!lines().some(function(l){return isUp(l.s);});}
 function goCheckout(){ if(count()&&needUpsell()) showUpsell(); else showCart(); }
 function upRank(s){
@@ -789,26 +791,31 @@ function upRank(s){
 function showUpsell(manual){
   view='upsell'; body.dataset.manual=manual?'1':'';
   body.innerHTML='<div class="grab"></div><div class="up-h"><span class="up-ic" aria-hidden="true">🥢</span>'+
-    '<h3 id="sheetTitle">Добавить к заказу?</h3><p>Соусы, закуски и напитки — привезём вместе с заказом</p></div>'+
+    '<h3 id="sheetTitle">Добавить к заказу?</h3><p>'+(hasDaily()?'Роллы по акции, соусы, закуски и напитки':'Соусы, закуски и напитки')+' — привезём вместе с заказом</p></div>'+
     '<div class="up-grid" id="upGrid"></div><div class="up-ft" id="upFt"></div>';
   paintUpsell(); openSheet();
 }
 function paintUpsell(){
   var g=$('#upGrid'); if(!g) return;
-  var U=upItems().map(function(s,i){return {s:s,i:i,r:upRank(s)};}).sort(function(a,b){return b.r-a.r||a.i-b.i;});
-  g.innerHTML=U.map(function(u){
-    var s=u.s,q=qtyOfItem(s.id);
+  var all=upItems().map(function(s,i){return {s:s,i:i,r:upRank(s)};});
+  var D=all.filter(function(u){return isDaily(u.s);}).sort(function(a,b){return a.i-b.i;});          // акция дня — сначала, в порядке из админки
+  var U=all.filter(function(u){return !isDaily(u.s);}).sort(function(a,b){return b.r-a.r||a.i-b.i;});
+  var dc=catById.daily||{};
+  var head=function(t){return '<div class="lgh">'+esc(t)+'</div>';};
+  g.innerHTML=(D.length?head((dc.icon||'🔥')+' '+(dc.name||'Акция дня')+(dc.sub?' · '+dc.sub:'')):'')+D.concat(U.length&&D.length?[{head:1}]:[]).concat(U).map(function(u){
+    if(u.head) return head('🥢 Допы');
+    var s=u.s,q=qtyOfItem(s.id),p=curPrice(s),old=(isDaily(s)&&!hasOpts(s)&&s.old>p)?s.old:0;
     return '<div class="uc'+(q?' in':'')+'">'+
       '<button type="button" class="uim" data-open="'+esc(s.id)+'" aria-label="'+esc(s.name)+' — подробнее">'+(s.img?fitImg(s.img,'',true):'<span>'+esc(s.icon||'🥢')+'</span>')+'</button>'+
       '<b>'+esc(s.name)+'</b><small>'+esc(s.desc||'')+'</small>'+optsHTML(s)+
-      '<div class="ub"><span class="up-pr">'+fmt(curPrice(s))+'</span>'+buyHTML(s.id,true)+'</div></div>';
+      '<div class="ub"><span class="up-pr">'+fmt(p)+(old?' <s style="font-size:.78em;opacity:.6;font-weight:600">'+fmt(old)+'</s>':'')+'</span>'+buyHTML(s.id,true)+'</div></div>';
   }).join('');
-  var add=lines().filter(function(l){return isUp(l.s);}).reduce(function(a,l){return a+l.price*cart[l.k];},0);
+  var add=lines().filter(function(l){return isUp(l.s)||isDaily(l.s);}).reduce(function(a,l){return a+l.price*cart[l.k];},0);
   var manual=body.dataset.manual==='1';
   $('#upFt').innerHTML=manual
     ?'<button type="button" class="big" data-act="up-go">'+(add?'Готово · +'+fmt(add):'Вернуться к заказу')+'</button>'
     :'<button type="button" class="ghost" data-act="up-no">Нет, спасибо</button>'+
-     '<button type="button" class="big" data-act="up-go"'+(add?'':' disabled')+'>'+(add?'Добавить · +'+fmt(add):'Выберите допы')+'</button>';
+     '<button type="button" class="big" data-act="up-go"'+(add?'':' disabled')+'>'+(add?'Добавить · +'+fmt(add):(hasDaily()?'Выберите позиции':'Выберите допы'))+'</button>';
 }
 function showCart(){
   view='cart';
@@ -847,7 +854,7 @@ function paintItems(){
     var s=l.s,q=cart[l.k];
     return '<div class="ci">'+(s.img?'<img src="'+esc(s.img)+'" alt="">':(s.icon?'<span class="ci-ic">'+esc(s.icon)+'</span>':''))+'<div class="n"><b>'+esc(l.name)+'</b><small>'+fmt(l.price)+(q>1?' × '+q:'')+'</small></div>'+
       '<div class="step"><button type="button" data-dec="'+esc(l.k)+'" aria-label="Убрать один">−</button><b>'+q+'</b><button type="button" data-inc="'+esc(l.k)+'" aria-label="Добавить ещё">+</button></div></div>';
-  }).join('')+(upItems().length&&!lines().some(function(l){return isUp(l.s);})?'<button type="button" class="addup" data-act="upsell">🥢 Добавить соусы, закуски или напитки</button>':'');
+  }).join('')+(upItems().length&&!lines().some(function(l){return isUp(l.s);})?'<button type="button" class="addup" data-act="upsell">'+(hasDaily()?'🔥 Акция дня, соусы, закуски и напитки':'🥢 Добавить соусы, закуски или напитки')+'</button>':'');
   paintSums();
 }
 function paintSums(){
